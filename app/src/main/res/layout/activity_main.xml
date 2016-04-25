@@ -14,12 +14,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="56dp"
         android:id="@+id/textViewCount"
         android:textSize="80dp"
         android:textColor="#ffffff"
         android:textColorHighlight="#000000"
         android:textColorHint="#000000"
+        android:textIsSelectable="false"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -50,11 +51,11 @@
         android:layout_height="wrap_content"
         android:text="Toks"
         android:id="@+id/textView2"
-        android:textSize="40dp"
+        android:textSize="50dp"
+        android:textColorHighlight="#ffffff"
+        android:textColor="#ffffff"
         android:layout_alignBottom="@+id/textViewCount"
         android:layout_alignRight="@+id/buttontok"
-        android:layout_alignEnd="@+id/buttontok"
-        android:textColorHighlight="#ffffff"
-        android:textColor="#ffffff" />
+        android:layout_alignEnd="@+id/buttontok" />
 
 </RelativeLayout>
