@@ -1,6 +1,8 @@
 package com.example.willem.click;
 
+import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView txtTok;
 
+    SoundPool mySound;
+    int soundId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +30,10 @@ public class MainActivity extends AppCompatActivity {
 
         txtTok = (TextView)findViewById(R.id.textViewCount);
 
-        final MediaPlayer TokSound = MediaPlayer.create(this, R.raw.Tok_Sound);
+        mySound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+        soundId = mySound.load(this, R.raw.toksound, 1);
+        //final MediaPlayer TokSound = MediaPlayer.create(this, R.raw.toksound);
+        final MediaPlayer Kukalaku = MediaPlayer.create(this, R.raw.kukalaku);
 
 
         btnTok.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 intCountValue++;
 
                 txtTok.setText( String.valueOf(intCountValue));
-                TokSound.start();
+                mySound.play(1, 1, 1, 1, 0, 1);
+                //TokSound.stop();
+                //TokSound.start();
             }
         });
 
@@ -47,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 txtTok.setText(String.valueOf(0));
+                Kukalaku.start();
             }
 
         });

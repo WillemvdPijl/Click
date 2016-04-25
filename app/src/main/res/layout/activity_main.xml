@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.willem.click.MainActivity">
+    tools:context="com.example.willem.click.MainActivity"
+    android:background="@drawable/wall">
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,7 +18,8 @@
         android:id="@+id/textViewCount"
         android:textSize="60dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
@@ -49,6 +51,8 @@
         android:textSize="40dp"
         android:layout_alignBottom="@+id/textViewCount"
         android:layout_alignRight="@+id/buttontok"
-        android:layout_alignEnd="@+id/buttontok" />
+        android:layout_alignEnd="@+id/buttontok"
+        android:textColorHighlight="#ffffff"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>
