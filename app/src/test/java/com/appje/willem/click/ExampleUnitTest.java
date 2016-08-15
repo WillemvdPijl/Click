@@ -1,4 +1,4 @@
-package com.example.willem.click;
+package com.appje.willem.click;
 
 import org.junit.Test;
 

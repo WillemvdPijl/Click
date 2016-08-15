@@ -1,4 +1,4 @@
-package com.example.willem.click;
+package com.appje.willem.click;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
