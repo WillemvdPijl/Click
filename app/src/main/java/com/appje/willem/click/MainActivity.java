@@ -1,10 +1,9 @@
 package com.appje.willem.click;
 
 import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.media.SoundPool;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,14 +23,34 @@ public class MainActivity extends AppCompatActivity {
     TextView txtTok;
 
     SoundPool mySound;
+    SoundPool mySound2;
+
     int soundId;
+
+    private static final String TOAST_TEXT = "Test ads are being shown. "
+            + "To show live ads, replace the ad unit ID in res/values/strings.xml with your own ad unit ID.";
+
+    public void Tok(){
+        String countValue= txtTok.getText().toString();
+
+        int intCountValue = Integer.parseInt(countValue);
+        intCountValue++;
+
+        txtTok.setText( String.valueOf(intCountValue));
+        mySound.play(1, 1, 1, 1, 0, 1);
+    }
+
+    public void WegTok(){
+        txtTok.setText(String.valueOf(0));
+        mySound2.play(1, 1, 1, 1, 0, 1);
+    }
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-9625527540511485~8681038055");
 
         btnTok = (Button)findViewById(R.id.buttontok);
         btnReset = (Button)findViewById(R.id.buttonreset);
@@ -40,21 +58,21 @@ public class MainActivity extends AppCompatActivity {
         txtTok = (TextView)findViewById(R.id.textViewCount);
 
         mySound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+        mySound2 = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
         soundId = mySound.load(this, R.raw.toksound, 1);
+        soundId = mySound2.load(this, R.raw.kukalaku, 1);
         //final MediaPlayer TokSound = MediaPlayer.create(this, R.raw.toksound);
-        final MediaPlayer Kukalaku = MediaPlayer.create(this, R.raw.kukalaku);
+
+
+
+        //final MediaPlayer Kukalaku = MediaPlayer.create(this, R.raw.kukalaku);
+
 
 
         btnTok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String countValue= txtTok.getText().toString();
-
-                int intCountValue = Integer.parseInt(countValue);
-                intCountValue++;
-
-                txtTok.setText( String.valueOf(intCountValue));
-                mySound.play(1, 1, 1, 1, 0, 1);
+                Tok();
                 //TokSound.stop();
                 //TokSound.start();
             }
@@ -64,8 +82,7 @@ public class MainActivity extends AppCompatActivity {
         btnReset.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                txtTok.setText(String.valueOf(0));
-                Kukalaku.start();
+                WegTok();
             }
 
         });
@@ -75,6 +92,9 @@ public class MainActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template").build();
         adView.loadAd(adRequest);
+
+        // Toasts the test ad message on the screen. Remove this after defining your own ad unit ID.
+        Toast.makeText(this, TOAST_TEXT, Toast.LENGTH_LONG).show();
 
     }
 
@@ -98,4 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
+
