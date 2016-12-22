@@ -9,7 +9,7 @@ public class TestTok extends AndroidTestCase {
 
 
     public void TestTok() throws Throwable{
-        
+
     }
 
 }
