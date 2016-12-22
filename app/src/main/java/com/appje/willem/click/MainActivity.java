@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         soundId = mySound.load(this, R.raw.toksound, 1);
         soundId = mySound2.load(this, R.raw.kukalaku, 1);
         //final MediaPlayer TokSound = MediaPlayer.create(this, R.raw.toksound);
-
+//hoi
 
 
         //final MediaPlayer Kukalaku = MediaPlayer.create(this, R.raw.kukalaku);
